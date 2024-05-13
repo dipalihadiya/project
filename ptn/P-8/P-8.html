@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disarium Numbers</title>
+</head>
+<body>
+    <div id="disariumNumbers"></div>
+
+    <script>
+        function calculateNumberOfDigits(number) {
+            return String(number).length;
+        }
+
+        function isDisarium(number) {
+            let sum = 0;
+            let temp = number;
+            let numberOfDigits = calculateNumberOfDigits(number);
+            
+            while (temp > 0) {
+                let digit = temp % 10;
+                sum += Math.pow(digit, numberOfDigits);
+                temp = Math.floor(temp / 10);
+                numberOfDigits--;
+            }
+            
+            return sum === number;
+        }
+
+        function findDisariumNumbers(range) {
+            let disariumNumbers = [];
+            let currentNumber = 1;
+
+            while (currentNumber <= range) {
+                if (isDisarium(currentNumber)) {
+                    disariumNumbers.push(currentNumber);
+                }
+                currentNumber++;
+            }
+
+            return disariumNumbers;
+        }
+
+        function displayDisariumNumbers(range) {
+            let disariumNumbers = findDisariumNumbers(range);
+            document.getElementById('disariumNumbers').innerHTML = `Disarium numbers up to ${range}: ${disariumNumbers.join(', ')}`;
+        }
+        displayDisariumNumbers(1000);
+    </script>
+</body>
+</html>

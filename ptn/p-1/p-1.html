@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <div id="Table"></div>
+
+    <script>
+        function displayMultiplicationTable(number) {
+            let i = 1;
+            let table = '';
+
+            while (i <= 10) {
+                let result = number * i;
+                table += `${number} * ${i} = ${result} <br>`;
+                i++;
+            }
+
+            document.getElementById('Table').innerHTML = table;
+        }
+
+        displayMultiplicationTable(5);
+    </script>
+</body>
+</html>

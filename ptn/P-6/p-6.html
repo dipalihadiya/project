@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Numbers</title>
+</head>
+<body>
+    <div id="primeNumbers"></div>
+
+    <script>
+        function isPrime(number) {
+            if (number <= 1) {
+                return false;
+            }
+            let divisor = 2;
+            while (divisor <= Math.sqrt(number)) {
+                if (number % divisor === 0) {
+                    return false;
+                }
+                divisor++;
+            }
+            return true;
+        }
+
+        function findPrimeNumbers(range) {
+            let primeNumbers = [];
+            let currentNumber = 2;
+
+            while (currentNumber <= range) {
+                if (isPrime(currentNumber)) {
+                    primeNumbers.push(currentNumber);
+                }
+                currentNumber++;
+            }
+
+            return primeNumbers;
+        }
+
+        function displayPrimeNumbers(range) {
+            let primeNumbers = findPrimeNumbers(range);
+            document.getElementById('primeNumbers').innerHTML = `Prime numbers up to ${range}: ${primeNumbers.join(', ')}`;
+        }
+
+        displayPrimeNumbers(100);
+    </script>
+</body>
+</html>

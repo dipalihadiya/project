@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Squares</title>
+</head>
+<body>
+    <div id="sumDisplay"></div>
+
+    <script>
+        function displaySumOfSquares() {
+            let sum = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                let square = i * i;
+                sum += square;
+                document.getElementById('sumDisplay').innerHTML += `${square}${i < 10 ? '+' : ''}`;
+            }
+
+            document.getElementById('sumDisplay').innerHTML += `= ${sum}`;
+        }
+        displaySumOfSquares();
+    </script>
+</body>
+</html>

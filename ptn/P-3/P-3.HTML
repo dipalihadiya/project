@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong Numbers</title>
+</head>
+<body>
+    <div id="armstrongNumbers"></div>
+
+    <script>
+        function isArmstrong(number) {
+            let temp = number;
+            let numberOfDigits = String(number).length;
+            let sum = 0;
+
+            while (temp > 0) {
+                let digit = temp % 10;
+                sum += Math.pow(digit, numberOfDigits);
+                temp = Math.floor(temp / 10);S
+            }
+
+            return sum === number;
+        }
+
+        function findArmstrongNumbers(range) {
+            let armstrongNumbers = [];
+            let currentNumber = 0;
+
+            while (currentNumber <= range) {
+                if (isArmstrong(currentNumber)) {
+                    armstrongNumbers.push(currentNumber);
+                }
+                currentNumber++;
+            }
+
+            return armstrongNumbers;
+        }
+
+        function displayArmstrongNumbers(range) {
+            let armstrongNumbers = findArmstrongNumbers(range);
+            document.getElementById('armstrongNumbers').innerHTML = `Armstrong numbers up to ${range}: ${armstrongNumbers.join(', ')}`;
+        }
+
+        displayArmstrongNumbers(1000);
+    </script>
+</body>
+</html>

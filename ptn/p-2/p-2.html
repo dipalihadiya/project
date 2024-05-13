@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+</head>
+<body>
+    <div id="factorialResult"></div>
+
+    <script>
+        function calculateFactorial(number) {
+            let factorial = 1;
+            let i = 1;
+            while (i <= number) {
+                factorial *= i;
+                i++;
+            }
+
+            return factorial;
+        }
+        function displayFactorial(number) {
+            let result = calculateFactorial(number);
+            document.getElementById('factorialResult').innerHTML = `Factorial of ${number} is ${result}`;
+        }
+
+        displayFactorial(5);
+    </script>
+</body>
+</html>

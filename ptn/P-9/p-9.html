@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Integers</title>
+</head>
+<body>
+    <div id="sumDisplay"></div>
+
+    <script>
+        function sumIntegers() {
+            let total = 0;
+            let number = 0;
+            
+            do {
+                total += number;
+                number++;
+            } while (number <= 30);
+
+            return total;
+        }
+
+        function displaySum() {
+            let sum = sumIntegers();
+            document.getElementById('sumDisplay').innerHTML = `Sum of integers between 0 and 30: ${sum}`;
+        }
+        displaySum();
+    </script>
+</body>
+</html>

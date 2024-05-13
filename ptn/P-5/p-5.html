@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Series</title>
+</head>
+<body>
+    <div id="fibonacciSeries"></div>
+
+    <script>
+        function fibonacciSeries(limit) {
+            let fibonacci = [];
+            let a = 0, b = 1;
+
+            while (a <= limit) {
+                fibonacci.push(a);
+                let temp = a;
+                a = b;
+                b = temp + b;
+            }
+
+            return fibonacci;
+        }
+
+        function displayFibonacciSeries(limit) {
+            let series = fibonacciSeries(limit);
+            document.getElementById('fibonacciSeries').innerHTML = `Fibonacci series up to ${limit}: ${series.join(', ')}`;
+        }
+        displayFibonacciSeries(100);
+    </script>
+</body>
+</html>
